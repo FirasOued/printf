@@ -15,6 +15,9 @@ int _printf(const char *format, ...)
 	int (*print_function)(va_list);
 	int size = 0, i = 0;
 
+	if (!format)
+		return (-1);
+
 	va_start(list_of_variables, format);
 
 	while (format[i])

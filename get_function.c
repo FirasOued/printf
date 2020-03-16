@@ -15,6 +15,18 @@ int print_char(va_list list_of_variables)
 }
 
 /**
+ * print_prcg - print %
+ * @list_of_variables: variadic list
+ * Return: number of character printed -> 1
+ */
+int print_prcg(va_list list_of_variables)
+{
+	(void)list_of_variables;
+	_putchar('%');
+	return (1);
+}
+
+/**
  * print_str - print string
  * @list_of_variables: variadic list
  * Return: number of character printed
@@ -29,7 +41,18 @@ int print_str(va_list list_of_variables)
 		_putchar(str[size]);
 		size++;
 	}
-	return (size - 1);
+	return (size);
+}
+
+/**
+ * do_nothing - no action
+ * @list_of_variables: variadic list
+ * Return: -1
+ */
+int do_nothing(va_list list_of_variables)
+{
+	(void)list_of_variables;
+	return (0);
 }
 
 /**
@@ -43,6 +66,7 @@ int (*get_printFunc(const char *character))(va_list)
 	TYPES t[] = {
 		{'c', print_char},
 		{'s', print_str},
+		{'%', print_prcg},
 		{'\0', NULL}
 	};
 
@@ -55,7 +79,7 @@ int (*get_printFunc(const char *character))(va_list)
 				return (t[i].get_type);
 			i++;
 		}
-
+		return (do_nothing);
 	}
 	return (NULL);
 }
