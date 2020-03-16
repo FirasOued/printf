@@ -1,28 +1,24 @@
-#ifndef HOLBERTON_H
-#define HOLBERTON_H
+#ifndef __HOLBERTON__
+#define __HOLBERTON__
 
+#include <stdarg.h>
 
-
+/*---------------------------STRUCTS---------------------------*/
 
 /**
-*struct a - give the format
-*@c: character that will give us the function to use
-*@p: funct pointr with va_list argument
+ * struct TYPES - Vtype containing specifier & its matching display function
+ * @character: specifier
+ * @get_type: display function
  */
-
-typedef struct n
+typedef struct TYPES
 {
-	char c;
-	int (*p)(va_list list, char *s, int *indx);
-
-} get;
-int _printf(constrt char *format, ...);
-
-void buffer(char *s, char a, int *indx);
-
-int p_char(va_listrt n, char *s, int *indx);
-int p_str(va_listrt n, char *s, int *indx);
-int p_prctg(va_listrt n, char *s, int *indx);
-int p_d(va_listrt n, char *s, int *indx);
-
-
+	char character;
+	int (*get_type)(va_list);
+} TYPES;
+/*--------------------------PROTOTYPES--------------------------*/
+int _printf(const char *format, ...);
+int (*get_printFunc(const char *character))(va_list);
+int print_str(va_list list_of_variables);
+int print_char(va_list list_of_variables);
+int _putchar(char c);
+#endif
