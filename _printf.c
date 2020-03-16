@@ -1,49 +1,36 @@
+#include <stdio.h>
+#include <stdlib.h>
+#include <stdarg.h>
 #include "holberton.h"
 
-/**
-*buffer - def local buffer of 1024 characters
-*@s: buffer
-*@x: character to printed
-*@index: buffer's position
-*Return: func
-*/
-
-void buffer(char *s, char a, int *indx)
-{
-	s[*indx] = a;
-	*indx++;
-	if (*indx == 1024)
-	{
-		write(1, s, *indx);
-		*indx = 0;
-	}
-}
 
 /**
-*functoget - gets the function
-*@c: character to find
-*Return: funct
+ * _printf - produce an output according to format
+ * @format: character string indicating the display mod
+ * Return: number of character printed excluding '\0'
  */
-
-int (*functoget(char c))(va_list n, char *s, int *indx)
+int _printf(const char *format, ...)
 {
-	int ch;
-	 get flist[] = {
+	va_list list_of_variables;
+	int (*print_function)(va_list);
+	int size = 0, i = 0;
 
-		{'c', p_char}, {'s', p_str}, {'%', p_prctg}, {'i', p_d},
+	va_start(list_of_variables, format);
 
-		{'d', p_d}, {'\0', NULL}
-	};
-
-	for (ch = 0; flist[ch].c != '\0'; ch++)
+	while (format[i])
 	{
-		if (c == flist[ch].c)
+		print_function = get_printFunc(&format[i]);
+
+		if (!print_function)
 		{
-			return (flist[ch].p);
+			_putchar(format[i]);
+			i++, size++;
+		}
+		else
+		{
+			size += print_function(list_of_variables);
+			i += 2;
 		}
 	}
-	return (NULL);
-	
-
+	return (size);
 }
-
