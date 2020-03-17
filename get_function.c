@@ -51,6 +51,11 @@ int print_str(va_list list_of_variables)
 	return (size);
 }
 
+/**
+ * print_decimal - print integer
+ * @list_of_variables: variadic list
+ * Return: length of the number
+ */
 int print_decimal(va_list list_of_variables)
 {
 	int number = va_arg(list_of_variables, int);
@@ -58,7 +63,7 @@ int print_decimal(va_list list_of_variables)
 	char digit = 0;
 
 	if (number < 0)
-		_putchar('-'), number*= -1, size++;
+		_putchar('-'), number *= -1, size++;
 
 	while (number / div >= 10)
 		div *= 10;
