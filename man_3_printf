@@ -15,11 +15,16 @@ _printf \- format and print data
 .BI "int print_prcg(va_list a, char *s, int *index);"
 .BI "int print_decimal(va_list a, char *s, int *index);"
 .BI "int print_binary(va_list a, char *s, int *index);"
-.BI "int print_R(va_list a, char *s, int *index);"
 
 
+.SH DESCRIPTION
 
-.ings).
+.PP
+Print ARGUMENTS depends off their format. To use this function it has to be include the header file "holberton.h".
+
+.SH RETURN VALUE
+For successful return, this functions returns the number of characters
+printed (excluding the null byte used to end output to strings).
 
 .SH ARGUMENTS
 .TP
