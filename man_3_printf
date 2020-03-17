@@ -8,14 +8,14 @@ _printf \- format and print data
 .B #include "holberton.h"
 
 .PP
-
+.BI "int _printf(const char *format, ...);"
 .BI "int _putchar(char c);"
 .BI "int print_char(va_list a, char *s, int *index)"
 .BI "int print_str(va_list a, char *s, int *index);"
 .BI "int print_prcg(va_list a, char *s, int *index);"
 .BI "int print_decimal(va_list a, char *s, int *index);"
 .BI "int print_binary(va_list a, char *s, int *index);"
-.BI "int print_R(va_list a, char *s, int *index);"
+
 
 .SH DESCRIPTION
 
