@@ -96,6 +96,8 @@ int (*get_printFunc(const char *character))(va_list)
 		{'d', print_decimal},
 		{'i', print_decimal},
 		{'b', print_binary},
+		{'R', print_R},
+		{'r', p_REV},
 		{'\0', NULL}
 	};
 

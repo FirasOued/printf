@@ -19,7 +19,10 @@ int print_R(va_list n)
 
 
 	if (str == NULL)
-		str = "(null)";
+	{
+		write(1, "(null)", 1);
+		return (6);
+	}
 
 	i = 0;
 	while (str[i] != '\0')

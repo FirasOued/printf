@@ -23,5 +23,8 @@ int print_char(va_list list_of_variables);
 int print_prcg(va_list list_of_variables);
 int print_decimal(va_list list_of_variables);
 int print_binary(va_list list_of_variables);
+int print_R(va_list n);
+int p_REV(va_list n);
+int _strlen(char *s);
 int _putchar(char c);
 #endif
