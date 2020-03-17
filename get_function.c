@@ -51,6 +51,30 @@ int print_str(va_list list_of_variables)
 	return (size);
 }
 
+int print_decimal(va_list list_of_variables)
+{
+	int number = va_arg(list_of_variables, int);
+	int div = 1, mod = 0, size = 0;
+	char digit = 0;
+
+	if (number < 0)
+		_putchar('-'), number*= -1, size++;
+
+	while (number / div >= 10)
+		div *= 10;
+
+	mod = div * 10;
+
+	while (div)
+	{
+		digit = (number % mod) / div;
+		_putchar(digit + '0');
+		mod /= 10, div /= 10;
+		size++;
+	}
+	return (size);
+}
+
 /**
  * get_printFunc - wrapper function to choose the matching function
  * @character: the given specifier
@@ -63,6 +87,8 @@ int (*get_printFunc(const char *character))(va_list)
 		{'c', print_char},
 		{'s', print_str},
 		{'%', print_prcg},
+		{'d', print_decimal},
+		{'i', print_decimal},
 		{'\0', NULL}
 	};
 

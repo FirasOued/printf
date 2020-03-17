@@ -21,5 +21,6 @@ int (*get_printFunc(const char *character))(va_list);
 int print_str(va_list list_of_variables);
 int print_char(va_list list_of_variables);
 int print_prcg(va_list list_of_variables);
+int print_decimal(va_list list_of_variables);
 int _putchar(char c);
 #endif
