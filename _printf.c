@@ -22,6 +22,9 @@ int _printf(const char *format, ...)
 
 	while (format[i])
 	{
+		if (format[i] == '%' && format[i + 1] == '\0')
+			return (-1);
+
 		print_function = get_printFunc(&format[i]);
 
 		if (!print_function)

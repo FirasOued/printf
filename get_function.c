@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdarg.h>
+#include <unistd.h>
 #include "holberton.h"
 
 /**
@@ -36,6 +37,12 @@ int print_str(va_list list_of_variables)
 	int size = 0;
 	char *str = va_arg(list_of_variables, char*);
 
+	if (!str)
+	{
+		write(1, "(null)", 6);
+		return (6);
+	}
+
 	while (str[size])
 	{
 		_putchar(str[size]);
@@ -44,15 +51,34 @@ int print_str(va_list list_of_variables)
 	return (size);
 }
 
+
 /**
- * do_nothing - no action
+ * print_decimal - print integer
  * @list_of_variables: variadic list
- * Return: -1
+ * Return: length of the number
  */
-int do_nothing(va_list list_of_variables)
+int print_decimal(va_list list_of_variables)
 {
-	(void)list_of_variables;
-	return (0);
+	int number = va_arg(list_of_variables, int);
+	int div = 1, mod = 0, size = 0;
+	char digit = 0;
+
+	if (number < 0)
+		_putchar('-'), number *= -1, size++;
+
+	while (number / div >= 10)
+		div *= 10;
+
+	mod = div * 10;
+
+	while (div)
+	{
+		digit = (number % mod) / div;
+		_putchar(digit + '0');
+		mod /= 10, div /= 10;
+		size++;
+	}
+	return (size);
 }
 
 /**
@@ -67,6 +93,9 @@ int (*get_printFunc(const char *character))(va_list)
 		{'c', print_char},
 		{'s', print_str},
 		{'%', print_prcg},
+		{'d', print_decimal},
+		{'i', print_decimal},
+		{'b', print_binary},
 		{'\0', NULL}
 	};
 
@@ -79,7 +108,7 @@ int (*get_printFunc(const char *character))(va_list)
 				return (t[i].get_type);
 			i++;
 		}
-		return (do_nothing);
+
 	}
 	return (NULL);
 }
