@@ -47,21 +47,3 @@ int _strlen(char *s)
 
 	return (length);
 }
-
-/**
- * rev_string - reverse string
- * @s: the string to reverse
- * Return: reversed string
- */
-void rev_string(char *s)
-{
-	int i = 0, length = _strlen(s);
-	char tmp = 0;
-
-	for (i = 0 ; i < length / 2 ; i++)
-	{
-		tmp = s[i];
-		s[i] = s[length - i - 1];
-		s[length - i - 1] = tmp;
-	}
-}

@@ -40,9 +40,12 @@ int print_binary(va_list list_of_variables)
 		number /= 2;
 		i++;
 	}
+	binNumber[i] = '\0';
 
 	for (i = 0 ; i < size ; i++)
 		_putchar(binNumber[i]);
+
+	free(binNumber);
 
 	return (size);
 
