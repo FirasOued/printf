@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdarg.h>
+#include <unistd.h>
 #include "holberton.h"
 
 /**
@@ -36,23 +37,18 @@ int print_str(va_list list_of_variables)
 	int size = 0;
 	char *str = va_arg(list_of_variables, char*);
 
+	if (!str)
+	{
+		write(1, "(null)", 6);
+		return (6);
+	}
+
 	while (str[size])
 	{
 		_putchar(str[size]);
 		size++;
 	}
 	return (size);
-}
-
-/**
- * do_nothing - no action
- * @list_of_variables: variadic list
- * Return: -1
- */
-int do_nothing(va_list list_of_variables)
-{
-	(void)list_of_variables;
-	return (0);
 }
 
 /**
@@ -79,7 +75,7 @@ int (*get_printFunc(const char *character))(va_list)
 				return (t[i].get_type);
 			i++;
 		}
-		return (do_nothing);
+
 	}
 	return (NULL);
 }
