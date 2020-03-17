@@ -15,7 +15,6 @@ _printf \- format and print data
 .BI "int print_prcg(va_list a, char *s, int *index);"
 .BI "int print_decimal(va_list a, char *s, int *index);"
 .BI "int print_binary(va_list a, char *s, int *index);"
-.BI "int print_u(va_list a, char *s, int *index);"
 .BI "int print_R(va_list a, char *s, int *index);"
 
 .SH DESCRIPTION
