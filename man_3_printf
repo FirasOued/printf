@@ -1,20 +1,25 @@
 .TH man 3 "17 Mar 2020" "0.1" "_printf man page"
+
 .SH NAME
 _printf \- format and print data
 
 .SH SYNOPSIS
 .nf
 .B #include "holberton.h"
+
 .PP
 .BI "int _printf(const char *format, ...);"
 .BI "int _putchar(char c);"
-.BI "int print_char(va_list lis_ofvariables)"
-.BI "int print_str(va_list lis_ofvariables);"
-.BI "int print_prcg(va_list lis_ofvariables);"
-.BI "int print_decimal(va_list lis_ofvariables);"
-.BI "int print_rot(va_list lis_ofvariables);"
+.BI "int print_char(va_list a, char *s, int *index)"
+.BI "int print_str(va_list a, char *s, int *index);"
+.BI "int print_prcg(va_list a, char *s, int *index);"
+.BI "int print_decimal(va_list a, char *s, int *index);"
+.BI "int print_binary(va_list a, char *s, int *index);"
+.BI "int print_u(va_list a, char *s, int *index);"
+.BI "int print_R(va_list a, char *s, int *index);"
 
 .SH DESCRIPTION
+
 .PP
 Print ARGUMENTS depends off their format. To use this function it has to be include the header file "holberton.h".
 
@@ -40,10 +45,14 @@ Prints decimal (Base10)  numbers.
 Prints integer numebrs.
 
 .TP
-%u
-Prints an unsigned decimal (base10) number.
+%b
+The unsigned int argument is converted to binary.
 
 .TP
+%u
+Prints an unsigned decimal (base10) number.
+.TP
+
 %R
 Prints the rot13'ed string.
 
@@ -54,4 +63,4 @@ _printf("To print the string %s, printing char %c or printing number %d\\n", "Ab
 .I printf(3)
 
 .SH AUTHOR
-Karim Bahri, Firas Ouederni.
+Karim Bahri, Firas Ouederni
