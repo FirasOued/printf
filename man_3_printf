@@ -1,0 +1,57 @@
+.TH man 3 "17 Mar 2020" "0.1" "_printf man page"
+.SH NAME
+_printf \- format and print data
+
+.SH SYNOPSIS
+.nf
+.B #include "holberton.h"
+.PP
+.BI "int _printf(const char *format, ...);"
+.BI "int _putchar(char c);"
+.BI "int print_char(va_list lis_ofvariables)"
+.BI "int print_str(va_list lis_ofvariables);"
+.BI "int print_prcg(va_list lis_ofvariables);"
+.BI "int print_decimal(va_list lis_ofvariables);"
+.BI "int print_rot(va_list lis_ofvariables);"
+
+.SH DESCRIPTION
+.PP
+Print ARGUMENTS depends off their format. To use this function it has to be include the header file "holberton.h".
+
+.SH RETURN VALUE
+For successful return, this functions returns the number of characters
+printed (excluding the null byte used to end output to strings).
+
+.SH ARGUMENTS
+.TP
+%c
+Prints characters.
+
+.TP
+%s
+Prints strings.
+
+.TP
+%d
+Prints decimal (Base10)  numbers.
+
+.TP
+%i
+Prints integer numebrs.
+
+.TP
+%u
+Prints an unsigned decimal (base10) number.
+
+.TP
+%R
+Prints the rot13'ed string.
+
+.SH EXAMPLE
+_printf("To print the string %s, printing char %c or printing number %d\\n", "Abcde", 'A', 10);
+
+.SH SEE ALSO
+.I printf(3)
+
+.SH AUTHOR
+Karim Bahri, Firas Ouederni.
