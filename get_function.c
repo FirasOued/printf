@@ -51,6 +51,7 @@ int print_str(va_list list_of_variables)
 	return (size);
 }
 
+
 /**
  * print_decimal - print integer
  * @list_of_variables: variadic list
@@ -94,6 +95,7 @@ int (*get_printFunc(const char *character))(va_list)
 		{'%', print_prcg},
 		{'d', print_decimal},
 		{'i', print_decimal},
+		{'b', print_binary},
 		{'\0', NULL}
 	};
 
